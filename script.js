@@ -1,0 +1,1 @@
+function toggleMenu(){document.getElementById('links').classList.toggle('show')}document.querySelectorAll('.mini-team a').forEach((card,index)=>{const jokes=['Certified Pipe Whisperer.','Has emotionally recovered from at least 14 water heaters.','Legally not allowed near haunted crawlspaces alone.'];card.addEventListener('click',e=>{alert(jokes[index])})})
