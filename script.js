@@ -1,1 +1,14 @@
-function toggleMenu(){document.getElementById('links').classList.toggle('show')}document.querySelectorAll('.mini-team a').forEach((card,index)=>{const jokes=['Certified Pipe Whisperer.','Has emotionally recovered from at least 14 water heaters.','Legally not allowed near haunted crawlspaces alone.'];card.addEventListener('click',e=>{alert(jokes[index])})})
+function toggleMenu(){
+  const links=document.getElementById('links');
+  if(links) links.classList.toggle('show');
+}
+
+document.querySelectorAll('.flip-card').forEach(card=>{
+  card.addEventListener('click',()=>card.classList.toggle('flipped'));
+  card.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      card.classList.toggle('flipped');
+    }
+  });
+});
