@@ -1,1 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Services | Cluck Plumbing</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+
+  <style>
+    .brand-logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+      border-radius: 14px;
+      padding: 5px;
+    }
+
+    .services-page {
+      padding-top: 86px;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(83, 116, 145, .32), transparent 32%),
+        linear-gradient(180deg, #0d1117 0%, #101720 45%, #0d1117 100%);
+      min-height: 100vh;
+    }
+
+    .services-hero {
+      min-height: 68vh;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 4vw;
+      align-items: center;
+      padding: 7rem 5vw 5rem;
+    }
+
+    .services-hero h1 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: .9;
+      text-transform: uppercase;
+      margin: .8rem 0 1rem;
+    }
+
+    .services-hero p {
+      color: #c8d3df;
+      font-size: 1.18rem;
+      max-width: 680px;
+    }
+
+    .services-hero-photo {
+      min-height: 520px;
+      border-radius: 34px;
+      background-image:
+        linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1700&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 35px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .service-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+
+    .service-pill-row span {
+      padding: .7rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #dce6f0;
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    .services-grid-section {
+      padding: 5rem 5vw;
+    }
+
+    .services-grid-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+    }
+
+    .services-grid-header h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .92;
+      margin: .5rem 0 0;
+    }
+
+    .services-grid-header p {
+      color: #bfcbd8;
+      max-width: 560px;
+      font-size: 1.08rem;
+    }
+
+    .service-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .service-showcase-card {
+      min-height: 460px;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      background: #151b22;
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 25px 60px rgba(0,0,0,.28);
+    }
+
+    .service-showcase-card.large {
+      min-height: 620px;
+      grid-row: span 2;
+    }
+
+    .service-showcase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.92);
+      transform: scale(1.02);
+    }
+
+    .service-showcase-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7,10,14,.08), rgba(7,10,14,.92)),
+        linear-gradient(90deg, rgba(7,10,14,.35), rgba(7,10,14,.1));
+    }
+
+    .service-showcase-card.repairs::before {
+      background-image: url("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=1600&auto=format&fit=crop");
+    }
+
+    .service-showcase-card.water::before {
+      background-image: url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1600&auto=format&fit=crop");
+    }
+
+    .service-showcase-card.drain::before {
+      background-image: url("https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1600&auto=format&fit=crop");
+    }
+
+    .service-showcase-card.commercial::before {
+      background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop");
+    }
+
+    .service-showcase-card.emergency::before {
+      background-image: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1600&auto=format&fit=crop");
+    }
+
+    .service-showcase-content {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 2rem;
+    }
+
+    .service-showcase-content span {
+      display: inline-flex;
+      margin-bottom: .7rem;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background: rgba(142,169,194,.18);
+      color: #b8d2ea;
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .service-showcase-content h3 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: .95;
+      margin-bottom: .8rem;
+      color: #fff;
+    }
+
+    .service-showcase-content p {
+      color: #dce5ee;
+      max-width: 620px;
+      font-size: 1.05rem;
+    }
+
+    .service-list-section {
+      padding: 5.5rem 5vw;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 4rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: #0d1117;
+    }
+
+    .service-list-section h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .92;
+      margin: .75rem 0 1rem;
+    }
+
+    .service-list-section p {
+      color: #bfcbd8;
+      font-size: 1.08rem;
+    }
+
+    .service-check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .9rem;
+    }
+
+    .service-check {
+      padding: 1.1rem 1.2rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #e8eef5;
+      font-weight: 800;
+    }
+
+    .service-check small {
+      display: block;
+      color: #9fb0c0;
+      font-weight: 600;
+      margin-top: .35rem;
+      line-height: 1.4;
+    }
+
+    .service-process {
+      padding: 6rem 5vw;
+      background:
+        linear-gradient(rgba(7,10,14,.78), rgba(7,10,14,.93)),
+        url("https://images.unsplash.com/photo-1581092162384-8987c1d64718?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-process h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .92;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .process-card {
+      padding: 1.5rem;
+      border-radius: 24px;
+      background: rgba(13,17,23,.78);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .process-card strong {
+      display: block;
+      color: #8ea9c2;
+      font-size: 2rem;
+      margin-bottom: .6rem;
+    }
+
+    .process-card h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: .5rem;
+    }
+
+    .process-card p {
+      color: #c7d2de;
+      font-size: .95rem;
+    }
+
+    .services-cta {
+      padding: 7rem 5vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: #0b0f14;
+    }
+
+    .services-cta-photo {
+      min-height: 430px;
+      border-radius: 32px;
+      background:
+        linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1600&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 30px 70px rgba(0,0,0,.42);
+    }
+
+    .services-cta-copy h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: .92;
+      margin-bottom: 1rem;
+    }
+
+    .services-cta-copy p {
+      color: #c6d0db;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      max-width: 620px;
+    }
+
+    @media (max-width: 1000px) {
+      .services-hero,
+      .service-list-section,
+      .services-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .service-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-showcase-card,
+      .service-showcase-card.large,
+      .services-hero-photo,
+      .services-cta-photo {
+        min-height: 380px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid-header {
+        display: block;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .service-check-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-hero {
+        padding-top: 5rem;
+      }
+
+      .service-showcase-content {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <a class="brand brand-logo" href="../index.html" aria-label="Cluck Plumbing home">
+      <img src="../assets/logo/cluck-owl-logo.png" alt="Cluck Plumbing owl logo" />
+      <span>Cluck Plumbing</span>
+    </a>
+
+    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <div id="links" class="links">
+      <a href="../index.html">Home</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../team/">Meet the Flock</a>
+      <a href="../quote/">Ask Us</a>
+      <a href="../contact/">Contact</a>
+    </div>
+  </nav>
+
+  <main class="services-page">
+    <section class="services-hero">
+      <div>
+        <p class="eyebrow">Cluck Plumbing Services</p>
+
+        <h1>The cluck stops here.</h1>
+
+        <p>
+          From tiny leaks to serious sewer and drain issues, Cluck Plumbing handles
+          residential and commercial work with upfront communication, clean workmanship,
+          and just enough personality to make plumbing less miserable.
+        </p>
+
+        <div class="service-pill-row">
+          <span>Residential</span>
+          <span>Commercial</span>
+          <span>Water Heaters</span>
+          <span>Sewer & Drain</span>
+          <span>Emergency</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="../quote/">Ask Us a Question</a>
+          <a class="btn secondary" href="tel:4797893138">Call 479-789-3138</a>
+        </div>
+      </div>
+
+      <div class="services-hero-photo" aria-label="Plumber working on job site"></div>
+    </section>
+
+    <section class="services-grid-section">
+      <div class="services-grid-header">
+        <div>
+          <p class="eyebrow">What we handle</p>
+          <h2>Real plumbing work. Zero mystery puddle energy.</h2>
+        </div>
+
+        <p>
+          If water is somewhere it should not be, if hot water is gone, or if the
+          drain is acting possessed, this is the kind of work Cluck is built for.
+        </p>
+      </div>
+
+      <div class="service-showcase-grid">
+        <article class="service-showcase-card large repairs">
+          <div class="service-showcase-content">
+            <span>Residential Repairs</span>
+            <h3>Leaks, toilets, fixtures & weird water problems.</h3>
+            <p>
+              Everyday plumbing repairs handled cleanly and clearly, from toilet resets
+              and fixture issues to hosebibs, leaks, and the “why is this wet?” situations.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-showcase-card water">
+          <div class="service-showcase-content">
+            <span>Water Heaters</span>
+            <h3>Hot water without the drama.</h3>
+            <p>
+              Water heater installs, replacements, and troubleshooting when the shower
+              suddenly becomes a character-building exercise.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-showcase-card drain">
+          <div class="service-showcase-content">
+            <span>Sewer & Drain</span>
+            <h3>When the drain has chosen violence.</h3>
+            <p>
+              Sewer cleanouts, drain issues, cable machine work, camera inspections,
+              and locator support when the problem is hiding underground.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-showcase-card commercial">
+          <div class="service-showcase-content">
+            <span>Commercial Plumbing</span>
+            <h3>Keep the business flowing.</h3>
+            <p>
+              Commercial plumbing support for businesses that need bathrooms, kitchens,
+              drains, and lines working before customers notice there was ever a problem.
+            </p>
+          </div>
+        </article>
+
+        <article class="service-showcase-card emergency">
+          <div class="service-showcase-content">
+            <span>Emergency / After Hours</span>
+            <h3>When water is doing something stupid.</h3>
+            <p>
+              After-hours and weekend availability for urgent situations that cannot
+              wait until Monday morning.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="service-list-section">
+      <div>
+        <p class="eyebrow">Service menu</p>
+        <h2>Stuff we cluckin’ fix.</h2>
+        <p>
+          This is not every possible plumbing issue, but it covers the main services
+          customers usually need help with.
+        </p>
+      </div>
+
+      <div class="service-check-grid">
+        <div class="service-check">
+          Toilet resets
+          <small>Loose, leaking, rocking, or just being dramatic.</small>
+        </div>
+
+        <div class="service-check">
+          Hosebib replacement
+          <small>Outdoor faucet issues, leaks, or damaged hose connections.</small>
+        </div>
+
+        <div class="service-check">
+          Water heater installation
+          <small>Replacement and install work for reliable hot water.</small>
+        </div>
+
+        <div class="service-check">
+          Sewer cleanout installation
+          <small>Access points for sewer and drain service.</small>
+        </div>
+
+        <div class="service-check">
+          Camera & locator work
+          <small>Find the problem instead of guessing where it lives.</small>
+        </div>
+
+        <div class="service-check">
+          Cable machine service
+          <small>Drain cleaning when the clog has committed to the bit.</small>
+        </div>
+
+        <div class="service-check">
+          Yard line replacement
+          <small>Water line issues that need heavier equipment and planning.</small>
+        </div>
+
+        <div class="service-check">
+          Commercial plumbing support
+          <small>For local businesses that need plumbing handled fast and clean.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-process">
+      <p class="eyebrow center">How it works</p>
+      <h2>No weird invoice surprises.</h2>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <strong>01</strong>
+          <h3>Ask the question</h3>
+          <p>Send a message, describe the issue, and include photos if you have them.</p>
+        </article>
+
+        <article class="process-card">
+          <strong>02</strong>
+          <h3>Get pointed right</h3>
+          <p>Cluck helps determine if it is simple, urgent, or needs an in-person look.</p>
+        </article>
+
+        <article class="process-card">
+          <strong>03</strong>
+          <h3>Know the pricing</h3>
+          <p>Rates and common pricing are published so you have a real starting point.</p>
+        </article>
+
+        <article class="process-card">
+          <strong>04</strong>
+          <h3>Get it fixed</h3>
+          <p>Clean work, clear communication, and no “surprise, this is double” nonsense.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="services-cta">
+      <div class="services-cta-photo" aria-label="Plumbing tools and service work"></div>
+
+      <div class="services-cta-copy">
+        <h2>Not sure what service you need?</h2>
+
+        <p>
+          That is normal. Most people do not wake up fluent in pipe problems.
+          Send a message, include photos if possible, and ask Cluck what to do next.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="../quote/">Ask Us a Question</a>
+          <a class="btn secondary" href="../pricing/">See Pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="sticky" href="https://m.me/CluckPlumbingLLC">
+    Ask us a question
+  </a>
+</body>
+</html>
