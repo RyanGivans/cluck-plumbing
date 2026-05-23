@@ -1,0 +1,1 @@
+Real uploaded team photos need to be committed manually as image files. The previous attempted image commit was invalid because it committed literal text instead of image bytes.
