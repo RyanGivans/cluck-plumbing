@@ -1,1 +1,470 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Pricing | Cluck Plumbing</title><link rel='stylesheet' href='../styles.css'></head><body><nav class='nav'><a class='brand' href='../index.html'><span class='mark'>CP</span><span>Cluck Plumbing</span></a><div class='links'><a href='../index.html'>Home</a><a href='../services/'>Services</a><a href='../team/'>Meet the Flock</a><a href='../quote/'>Ask Us</a></div></nav><main class='pricing-page'><section class='pricing-hero'><p class='eyebrow'>Transparent Pricing</p><h1>No mystery pipe math.</h1><p>Clear hourly rates, common job examples, and equipment costs listed upfront so you know what to expect before the work starts.</p></section><section class='rate-cards'><article><span>Residential</span><strong>$160/hr</strong><p>Plus materials</p></article><article><span>Commercial</span><strong>$210/hr</strong><p>Plus materials</p></article><article><span>Additional Person</span><strong>$75/hr</strong><p>When the job needs another set of hands</p></article><article><span>Emergency</span><strong>2x Rate</strong><p>After hours and weekends</p></article></section><section class='pricing-section'><div><p class='eyebrow'>Common Job Examples</p><h2>Typical pricing ranges</h2><p>All numbers are approximations and may change if the job has hidden issues or added complications.</p></div><div class='price-table'><div><b>Toilet Reset</b><span>~1 hour + ~$30 materials</span><strong>~$190</strong></div><div><b>Water Heater Installation</b><span>~4 hours + ~$700 materials</span><strong>~$1,320</strong></div><div><b>Hosebib Replacement</b><span>~1.5 hours + ~$100 materials</span><strong>~$340</strong></div><div><b>Water Yard Line Replacement</b><span>~4 hours, 2 people + excavator/materials</span><strong>~$1,990</strong></div><div><b>Sewer Cleanout Installation</b><span>~3 hours + cable machine/camera/locator</span><strong>~$780</strong></div></div></section><section class='pricing-section equipment'><div><p class='eyebrow'>If the Job Requires</p><h2>Equipment & add-ons</h2></div><div class='addon-grid'><article><b>Cable Machine</b><span>$100 + hourly</span></article><article><b>Sewer Camera / Locator</b><span>$200 + hourly</span></article><article><b>Excavator</b><span>$600 + hourly</span></article><article><b>Permit</b><span>$150 + permit cost</span></article><article><b>Bella Vista & Lowell Permit</b><span>$250 + permit cost</span></article><article><b>Hard Number Bids</b><span>Available after in-person review</span></article></div></section><section class='pricing-note'><h2>Want the real number?</h2><p>Send a message with photos and what is going on. If it needs to be seen in person, hourly rate may apply for the estimate.</p><a class='btn primary' href='../quote/'>Ask Us a Question</a></section></main><a class='sticky' href='https://m.me/CluckPlumbingLLC'>Ask us a question</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | Cluck Plumbing</title>
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .pricing-page-new {
+      padding-top: 86px;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(63, 96, 125, .35), transparent 34%),
+        linear-gradient(180deg, #0d1117 0%, #101720 48%, #0d1117 100%);
+      min-height: 100vh;
+    }
+
+    .pricing-hero-new {
+      min-height: 62vh;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+      gap: 4vw;
+      padding: 7rem 5vw 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .pricing-hero-copy h1 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: .9;
+      text-transform: uppercase;
+      margin: .8rem 0 1rem;
+    }
+
+    .pricing-hero-copy p {
+      color: #c8d3df;
+      font-size: 1.18rem;
+      max-width: 680px;
+    }
+
+    .pricing-hero-photo {
+      min-height: 520px;
+      border-radius: 34px;
+      background-image:
+        linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.32)),
+        url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1600&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 35px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .pricing-alert {
+      margin: -2rem 5vw 5rem;
+      padding: 1.4rem 1.6rem;
+      border-radius: 22px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #d6dee8;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .pricing-alert strong {
+      color: #fff;
+    }
+
+    .rate-cards-new {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 0 5vw 6rem;
+    }
+
+    .rate-card-new {
+      min-height: 250px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      background: #151b22;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 25px 55px rgba(0,0,0,.25);
+    }
+
+    .rate-card-new::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: .35;
+      filter: saturate(.85);
+    }
+
+    .rate-card-new:nth-child(1)::before {
+      background-image: url("https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1000&auto=format&fit=crop");
+    }
+
+    .rate-card-new:nth-child(2)::before {
+      background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop");
+    }
+
+    .rate-card-new:nth-child(3)::before {
+      background-image: url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop");
+    }
+
+    .rate-card-new:nth-child(4)::before {
+      background-image: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1000&auto=format&fit=crop");
+    }
+
+    .rate-card-new::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9,12,17,.2), rgba(9,12,17,.95));
+    }
+
+    .rate-card-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .rate-card-content span {
+      color: #9bb8d1;
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: 1.5px;
+      font-weight: 900;
+    }
+
+    .rate-card-content strong {
+      display: block;
+      font-size: 2.6rem;
+      color: #fff;
+      margin: .25rem 0;
+      line-height: 1;
+    }
+
+    .rate-card-content p {
+      color: #d8e0ea;
+    }
+
+    .pricing-section-new {
+      padding: 5.5rem 5vw;
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 4rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .pricing-section-new h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: .92;
+      margin: .75rem 0 1rem;
+    }
+
+    .pricing-section-new .section-lead {
+      color: #bfcbd8;
+      font-size: 1.08rem;
+    }
+
+    .job-list {
+      display: grid;
+      gap: .9rem;
+    }
+
+    .job-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr auto;
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.2rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .job-row b {
+      font-size: 1.05rem;
+    }
+
+    .job-row span {
+      color: #bac7d4;
+    }
+
+    .job-row strong {
+      font-size: 1.4rem;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .equipment-wrap {
+      background:
+        linear-gradient(rgba(7,10,14,.72), rgba(7,10,14,.92)),
+        url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .addon-grid-new {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .addon-card {
+      padding: 1.4rem;
+      border-radius: 22px;
+      background: rgba(13,17,23,.78);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+    }
+
+    .addon-card b {
+      display: block;
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: .35rem;
+    }
+
+    .addon-card span {
+      color: #c2cfdb;
+    }
+
+    .pricing-cta-new {
+      padding: 7rem 5vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: #0b0f14;
+    }
+
+    .pricing-cta-photo {
+      min-height: 430px;
+      border-radius: 32px;
+      background:
+        linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1600&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 30px 70px rgba(0,0,0,.42);
+    }
+
+    .pricing-cta-copy h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: .92;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-cta-copy p {
+      color: #c6d0db;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      max-width: 620px;
+    }
+
+    @media (max-width: 1000px) {
+      .pricing-hero-new,
+      .pricing-section-new,
+      .pricing-cta-new {
+        grid-template-columns: 1fr;
+      }
+
+      .rate-cards-new {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-hero-photo,
+      .pricing-cta-photo {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .rate-cards-new,
+      .addon-grid-new {
+        grid-template-columns: 1fr;
+      }
+
+      .job-row {
+        grid-template-columns: 1fr;
+        gap: .4rem;
+      }
+
+      .pricing-alert {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <a class="brand" href="../index.html"><span class="mark">CP</span><span>Cluck Plumbing</span></a>
+    <div class="links">
+      <a href="../index.html">Home</a>
+      <a href="../services/">Services</a>
+      <a href="../team/">Meet the Flock</a>
+      <a href="../quote/">Ask Us</a>
+      <a href="../contact/">Contact</a>
+    </div>
+  </nav>
+
+  <main class="pricing-page-new">
+    <section class="pricing-hero-new">
+      <div class="pricing-hero-copy">
+        <p class="eyebrow">Clear, upfront pricing</p>
+        <h1>No mystery pipe math.</h1>
+        <p>
+          We publish our rates because nobody wants to find out the price after the panic sets in.
+          Straightforward hourly pricing, common job examples, and equipment costs are listed below.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="../quote/">Ask Us a Question</a>
+          <a class="btn secondary" href="tel:4797893138">Call 479-789-3138</a>
+        </div>
+      </div>
+
+      <div class="pricing-hero-photo" aria-label="Plumbing work photo"></div>
+    </section>
+
+    <div class="pricing-alert">
+      <p><strong>Important:</strong> pricing below is an approximation and may change if the job has hidden issues, extra complications, or additional work required.</p>
+      <a class="btn secondary" href="../quote/">Send Photos</a>
+    </div>
+
+    <section class="rate-cards-new">
+      <article class="rate-card-new">
+        <div class="rate-card-content">
+          <span>Residential</span>
+          <strong>$160/hr</strong>
+          <p>Plus materials</p>
+        </div>
+      </article>
+
+      <article class="rate-card-new">
+        <div class="rate-card-content">
+          <span>Commercial</span>
+          <strong>$210/hr</strong>
+          <p>Plus materials</p>
+        </div>
+      </article>
+
+      <article class="rate-card-new">
+        <div class="rate-card-content">
+          <span>Additional Person</span>
+          <strong>$75/hr</strong>
+          <p>When the job needs another set of hands</p>
+        </div>
+      </article>
+
+      <article class="rate-card-new">
+        <div class="rate-card-content">
+          <span>Emergency</span>
+          <strong>2x Rate</strong>
+          <p>After-hours and weekends</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="pricing-section-new">
+      <div>
+        <p class="eyebrow">Common job examples</p>
+        <h2>Typical pricing ranges.</h2>
+        <p class="section-lead">
+          These examples are meant to give customers a realistic starting point before a job is inspected in person.
+        </p>
+      </div>
+
+      <div class="job-list">
+        <div class="job-row">
+          <b>Toilet Reset</b>
+          <span>~1 hour + ~$30 materials</span>
+          <strong>~$190</strong>
+        </div>
+        <div class="job-row">
+          <b>Water Heater Installation</b>
+          <span>~4 hours + ~$700 materials</span>
+          <strong>~$1,320</strong>
+        </div>
+        <div class="job-row">
+          <b>Hosebib Replacement</b>
+          <span>~1.5 hours + ~$100 materials</span>
+          <strong>~$340</strong>
+        </div>
+        <div class="job-row">
+          <b>Water Yard Line Replacement</b>
+          <span>~4 hours, 2 people + excavator/materials</span>
+          <strong>~$1,990</strong>
+        </div>
+        <div class="job-row">
+          <b>Sewer Cleanout Installation</b>
+          <span>~3 hours + cable machine/camera/locator</span>
+          <strong>~$780</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-section-new equipment-wrap">
+      <div>
+        <p class="eyebrow">If the job requires</p>
+        <h2>Equipment & add-ons.</h2>
+        <p class="section-lead">
+          Some jobs need heavier tools, extra help, permits, or diagnostic equipment. No surprise nonsense.
+        </p>
+      </div>
+
+      <div class="addon-grid-new">
+        <article class="addon-card">
+          <b>Cable Machine</b>
+          <span>$100 + hourly</span>
+        </article>
+        <article class="addon-card">
+          <b>Sewer Camera / Locator</b>
+          <span>$200 + hourly</span>
+        </article>
+        <article class="addon-card">
+          <b>Excavator</b>
+          <span>$600 + hourly</span>
+        </article>
+        <article class="addon-card">
+          <b>Permit</b>
+          <span>$150 + permit cost</span>
+        </article>
+        <article class="addon-card">
+          <b>Bella Vista & Lowell Permit</b>
+          <span>$250 + permit cost</span>
+        </article>
+        <article class="addon-card">
+          <b>Hard Number Bids</b>
+          <span>Available after an in-person review</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="pricing-cta-new">
+      <div class="pricing-cta-photo" aria-label="Plumbing service photo"></div>
+      <div class="pricing-cta-copy">
+        <h2>Want the real number?</h2>
+        <p>
+          Send photos, describe what is going on, and Cluck can point you in the right direction.
+          If the job has to be seen in person, the hourly rate may apply for the estimate.
+        </p>
+        <a class="btn primary" href="../quote/">Ask Us a Question</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="sticky" href="https://m.me/CluckPlumbingLLC">Ask us a question</a>
+</body>
+</html>
