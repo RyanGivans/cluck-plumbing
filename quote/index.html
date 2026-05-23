@@ -1,1 +1,43 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Us a Question | Cluck Plumbing</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+  <style>
+    .brand-logo img{width:48px;height:48px;object-fit:contain;display:block;background:#fff;border-radius:14px;padding:5px}.quote-page{padding-top:86px;min-height:100vh;background:radial-gradient(circle at 80% 5%,rgba(93,126,155,.32),transparent 32%),linear-gradient(180deg,#0d1117 0%,#101720 48%,#0d1117 100%)}.quote-hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:4vw;align-items:center;padding:7rem 5vw 4rem}.quote-hero h1{font-family:Anton,sans-serif;font-size:clamp(4rem,9vw,8rem);line-height:.9;text-transform:uppercase;margin:.8rem 0 1rem}.quote-hero p{color:#c8d3df;font-size:1.15rem;max-width:680px}.quote-photo{min-height:520px;border-radius:34px;background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1700&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:0 35px 80px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.1)}.quote-wrap{padding:1rem 5vw 6rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start}.quote-card,.quote-side-card{background:#151b22;border:1px solid rgba(255,255,255,.09);border-radius:30px;box-shadow:0 25px 60px rgba(0,0,0,.28)}.quote-card{padding:2rem}.quote-card h2,.quote-side-card h2{font-family:Anton,sans-serif;font-size:clamp(2.5rem,5vw,4rem);line-height:.95;margin-bottom:1rem}.quote-form{display:grid;gap:1rem}.field{display:grid;gap:.45rem}.field label{font-weight:900;color:#dce6f0;font-size:.9rem}.field input,.field textarea,.field select{width:100%;padding:1rem 1.05rem;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:#0d1117;color:#fff;font:inherit;outline:none}.field textarea{min-height:150px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8ea9c2;box-shadow:0 0 0 4px rgba(142,169,194,.12)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.note-box{padding:1rem;border-radius:18px;background:rgba(142,169,194,.12);border:1px solid rgba(142,169,194,.22);color:#d8e4ee}.quote-side{display:grid;gap:1rem}.quote-side-card{padding:1.5rem}.quote-side-card p{color:#c6d0db}.steps{display:grid;gap:.8rem;margin-top:1rem}.step{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start}.step strong{width:34px;height:34px;border-radius:999px;background:#f3f4f6;color:#111;display:grid;place-items:center}.messenger-card{background:linear-gradient(135deg,#1c2a38,#101720);padding:1.5rem;border-radius:28px;border:1px solid rgba(255,255,255,.1)}.messenger-card h3{font-size:1.5rem;margin-bottom:.5rem}.messenger-card p{color:#c6d0db;margin-bottom:1rem}.quote-footer-cta{padding:6rem 5vw;text-align:center;background:linear-gradient(135deg,#18202a,#0d1117)}.quote-footer-cta h2{font-family:Anton,sans-serif;font-size:clamp(3rem,7vw,6rem);line-height:.92;margin-bottom:1rem}.quote-footer-cta p{color:#c6d0db;max-width:680px;margin:0 auto 1.5rem}@media(max-width:1000px){.quote-hero,.quote-wrap{grid-template-columns:1fr}.quote-photo{min-height:360px}}@media(max-width:650px){.form-row{grid-template-columns:1fr}.quote-card{padding:1.25rem}.quote-hero{padding-top:5rem}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand brand-logo" href="../index.html" aria-label="Cluck Plumbing home"><img src="../assets/logo/cluck-owl-logo.png" alt="Cluck Plumbing owl logo" /><span>Cluck Plumbing</span></a>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+    <div id="links" class="links"><a href="../index.html">Home</a><a href="../services/">Services</a><a href="../pricing/">Pricing</a><a href="../team/">Meet the Flock</a><a href="../contact/">Contact</a></div>
+  </nav>
+  <main class="quote-page">
+    <section class="quote-hero">
+      <div><p class="eyebrow">Ask Cluck</p><h1>Tell us what broke.</h1><p>Send the basics, describe the problem, and include photos if you have them. If it is urgent, call or message directly so the cluckin’ cavalry knows what is going on.</p><div class="actions"><a class="btn primary" href="https://m.me/CluckPlumbingLLC">Open Messenger</a><a class="btn secondary" href="tel:4797893138">Call 479-789-3138</a></div></div>
+      <div class="quote-photo" aria-label="Plumbing service photo"></div>
+    </section>
+    <section class="quote-wrap">
+      <div class="quote-card">
+        <p class="eyebrow">Request help</p><h2>No mystery puddle left behind.</h2>
+        <form class="quote-form" action="https://formspree.io/f/yourformid" method="POST">
+          <div class="form-row"><div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required /></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required /></div></div>
+          <div class="form-row"><div class="field"><label for="city">City</label><input id="city" name="city" type="text" placeholder="Bella Vista, Fayetteville, etc." /></div><div class="field"><label for="service">What kind of issue?</label><select id="service" name="service"><option>Not sure yet</option><option>Leak / repair</option><option>Water heater</option><option>Sewer or drain</option><option>Commercial plumbing</option><option>Emergency / after hours</option></select></div></div>
+          <div class="field"><label for="message">What is going on?</label><textarea id="message" name="message" placeholder="Tell us what happened, where it is, how urgent it is, and whether you have photos." required></textarea></div>
+          <div class="note-box">To enable this form, replace <strong>yourformid</strong> in the Formspree URL with your real Formspree endpoint. Until then, use the Messenger button.</div>
+          <button class="btn primary" type="submit">Send Question</button>
+        </form>
+      </div>
+      <aside class="quote-side">
+        <div class="messenger-card"><h3>Faster option?</h3><p>Messenger is perfect for quick questions, job photos, and “is this bad?” plumbing moments.</p><a class="btn primary" href="https://m.me/CluckPlumbingLLC">Ask on Messenger</a></div>
+        <div class="quote-side-card"><h2>What to include</h2><div class="steps"><div class="step"><strong>1</strong><p>Where the problem is happening.</p></div><div class="step"><strong>2</strong><p>What changed, leaked, backed up, stopped working, or started making suspicious sounds.</p></div><div class="step"><strong>3</strong><p>Photos or video if you have them.</p></div><div class="step"><strong>4</strong><p>How urgent it feels and when someone can access the property.</p></div></div></div>
+      </aside>
+    </section>
+    <section class="quote-footer-cta"><h2>Water doing something stupid?</h2><p>Ask the question now. Cluck can tell you whether it is simple, urgent, or something that needs to be seen in person.</p><a class="btn primary" href="https://m.me/CluckPlumbingLLC">Message Cluck</a></section>
+  </main>
+</body>
+</html>
