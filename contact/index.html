@@ -1,1 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Contact | Cluck Plumbing</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+  <script defer src="../script.js"></script>
+
+  <style>
+    .brand-logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+      border-radius: 14px;
+      padding: 5px;
+    }
+
+    .contact-page {
+      padding-top: 86px;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 80% 5%, rgba(93, 126, 155, .32), transparent 32%),
+        linear-gradient(180deg, #0d1117 0%, #101720 48%, #0d1117 100%);
+    }
+
+    .contact-hero {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 4vw;
+      align-items: center;
+      padding: 7rem 5vw 4rem;
+    }
+
+    .contact-hero h1 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: .9;
+      text-transform: uppercase;
+      margin: .8rem 0 1rem;
+    }
+
+    .contact-hero p {
+      color: #c8d3df;
+      font-size: 1.15rem;
+      max-width: 680px;
+    }
+
+    .contact-photo {
+      min-height: 520px;
+      border-radius: 34px;
+      background:
+        linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.38)),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1700&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 35px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 0 5vw 5rem;
+    }
+
+    .contact-card {
+      padding: 1.6rem;
+      border-radius: 26px;
+      background: #151b22;
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 25px 55px rgba(0,0,0,.25);
+    }
+
+    .contact-card span {
+      display: inline-flex;
+      margin-bottom: .75rem;
+      color: #9bb8d1;
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: 1.5px;
+      font-weight: 900;
+    }
+
+    .contact-card h2 {
+      font-family: Anton, sans-serif;
+      font-size: 2.4rem;
+      line-height: .95;
+      margin-bottom: .6rem;
+    }
+
+    .contact-card p {
+      color: #c4cfdb;
+      margin-bottom: 1.1rem;
+    }
+
+    .contact-card a {
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 5.5rem 5vw;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .contact-form-card,
+    .service-area-card {
+      background: #151b22;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,.28);
+      padding: 2rem;
+    }
+
+    .contact-form-card h2,
+    .service-area-card h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: .92;
+      margin-bottom: 1rem;
+    }
+
+    .contact-form-card p,
+    .service-area-card p {
+      color: #c6d0db;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: .45rem;
+    }
+
+    .field label {
+      color: #dce6f0;
+      font-size: .9rem;
+      font-weight: 900;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 1rem 1.05rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: #0d1117;
+      color: #fff;
+      font: inherit;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: #8ea9c2;
+      box-shadow: 0 0 0 4px rgba(142,169,194,.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .area-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .75rem;
+      margin-top: 1.5rem;
+    }
+
+    .area-list div {
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #e8eef5;
+      font-weight: 800;
+    }
+
+    .contact-note {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(142,169,194,.12);
+      border: 1px solid rgba(142,169,194,.22);
+      color: #d8e4ee;
+    }
+
+    .contact-cta {
+      padding: 7rem 5vw;
+      text-align: center;
+      background:
+        linear-gradient(rgba(7,10,14,.76), rgba(7,10,14,.94)),
+        url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .contact-cta h2 {
+      font-family: Anton, sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: .92;
+      margin-bottom: 1rem;
+    }
+
+    .contact-cta p {
+      color: #c6d0db;
+      max-width: 720px;
+      margin: 0 auto 1.6rem;
+      font-size: 1.12rem;
+    }
+
+    @media (max-width: 1000px) {
+      .contact-hero,
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-photo {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .contact-hero {
+        padding-top: 5rem;
+      }
+
+      .form-row,
+      .area-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-card,
+      .service-area-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <a class="brand brand-logo" href="../index.html" aria-label="Cluck Plumbing home">
+      <img src="../assets/logo/cluck-owl-logo.png" alt="Cluck Plumbing owl logo" />
+      <span>Cluck Plumbing</span>
+    </a>
+
+    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <div id="links" class="links">
+      <a href="../index.html">Home</a>
+      <a href="../services/">Services</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../team/">Meet the Flock</a>
+      <a href="../quote/">Ask Us</a>
+    </div>
+  </nav>
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div>
+        <p class="eyebrow">Contact Cluck Plumbing</p>
+
+        <h1>Need a cluckin’ plumber?</h1>
+
+        <p>
+          Whether it is a leak, drain problem, water heater issue, commercial job,
+          or just a plumbing question you do not want to Google at midnight, reach out.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://m.me/CluckPlumbingLLC">
+            Ask on Messenger
+          </a>
+
+          <a class="btn secondary" href="tel:4797893138">
+            Call 479-789-3138
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-photo" aria-label="Plumbing tools and service work"></div>
+    </section>
+
+    <section class="contact-cards">
+      <article class="contact-card">
+        <span>Fastest</span>
+        <h2>Messenger</h2>
+        <p>
+          Best for quick questions, job photos, and “is this bad?” plumbing moments.
+        </p>
+        <a href="https://m.me/CluckPlumbingLLC">Open Messenger →</a>
+      </article>
+
+      <article class="contact-card">
+        <span>Direct</span>
+        <h2>Call</h2>
+        <p>
+          For urgent issues, active leaks, after-hours needs, or jobs that need immediate attention.
+        </p>
+        <a href="tel:4797893138">479-789-3138 →</a>
+      </article>
+
+      <article class="contact-card">
+        <span>Details</span>
+        <h2>Form</h2>
+        <p>
+          Use the form below for non-emergency questions, project details, and quote requests.
+        </p>
+        <a href="#contact-form">Jump to form →</a>
+      </article>
+    </section>
+
+    <section class="contact-section">
+      <div class="contact-form-card" id="contact-form">
+        <p class="eyebrow">Send details</p>
+
+        <h2>Tell Cluck what’s going on.</h2>
+
+        <p>
+          The more details you send, the easier it is to point you in the right direction.
+          Photos help a lot.
+        </p>
+
+        <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" placeholder="Fayetteville, Rogers, Bella Vista..." />
+            </div>
+
+            <div class="field">
+              <label for="reason">Reason</label>
+              <select id="reason" name="reason">
+                <option>General question</option>
+                <option>Quote request</option>
+                <option>Residential repair</option>
+                <option>Water heater</option>
+                <option>Sewer or drain</option>
+                <option>Commercial plumbing</option>
+                <option>Emergency / after hours</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Describe what is happening, where it is happening, and how urgent it feels."
+              required
+            ></textarea>
+          </div>
+
+          <div class="contact-note">
+            Replace <strong>yourformid</strong> in the Formspree URL with your real Formspree endpoint when ready.
+            Until then, Messenger and phone are the safest live options.
+          </div>
+
+          <button class="btn primary" type="submit">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <aside class="service-area-card">
+        <p class="eyebrow">Service area</p>
+
+        <h2>Northwest Arkansas plumbing help.</h2>
+
+        <p>
+          Cluck Plumbing is based around Northwest Arkansas. Exact availability may depend
+          on the job, schedule, permits, and distance.
+        </p>
+
+        <div class="area-list">
+          <div>Fayetteville</div>
+          <div>Springdale</div>
+          <div>Rogers</div>
+          <div>Bentonville</div>
+          <div>Bella Vista</div>
+          <div>Lowell</div>
+          <div>Centerton</div>
+          <div>Nearby NWA</div>
+        </div>
+
+        <div class="contact-note">
+          For fastest response, send a Messenger message with the city, issue, and photos.
+        </div>
+      </aside>
+    </section>
+
+    <section class="contact-cta">
+      <h2>Water acting suspicious?</h2>
+
+      <p>
+        Do not sit there listening to the drip like it is going to explain itself.
+        Message Cluck and get pointed in the right direction.
+      </p>
+
+      <div class="actions" style="justify-content:center;">
+        <a class="btn primary" href="https://m.me/CluckPlumbingLLC">
+          Ask on Messenger
+        </a>
+
+        <a class="btn secondary" href="../pricing/">
+          See Pricing
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <a class="sticky" href="https://m.me/CluckPlumbingLLC">
+    Ask us a question
+  </a>
+</body>
+</html>
