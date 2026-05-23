@@ -1,0 +1,1 @@
+Image assets are managed for the Cluck Plumbing site.
